@@ -1,38 +1,145 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  background-color: #258ea6;
+  padding-top: 150px
+}
+
+form {
+  margin-bottom: 120px;
+  margin-top: -150px;
+}
+
+.form-box {
+  padding: 50px 50px;
+  border-radius: 10px;
+  box-shadow: 0px 10px 50px #555;
+  background-color: #ffffff;
+}
+
+.Asterik {
+  color: red;
+}
+
+.spacing {
+  margin-bottom: 50px;
+}
+
+.star {
+  margin-left: 0px;
+}
+
+.star:before {
+  color: red;
+  padding-right: 4px;
+  content: "*";
+}
+
+.starPopUp {
+  margin-left: 20px;
+}
+
+h1 {
+  color: black;
+  text-align: center;
+  padding-bottom: 50px;
+}
+
+h2 {
   color: white;
+  font-size: 50px;
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.btnSubmit {
+  width: 550px;
+  font-size: 15px;
+  margin-top: 30px;
+  margin-left: 20px;
+  padding: 10px 10px 10px 10px;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.btnSubmit:focus {
+  outline: none;
+}
+
+input {
+  font-size: 16px;
+  border: 1px solid black;
+  width: 100%;
+  padding: 25px;
+}
+
+input,
+.spacing {
+  margin-left: 20px;
+}
+
+span {
+  display: flex;
+  margin-left: 25px;
+}
+
+#firstName {
+  width: 270px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+#lastName {
+  width: 260px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+#password {
+  width: 550px;
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+#email {
+  width: 550px;
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+#info {
+  margin-top: 30px;
+  color: #1a0dab;
+  cursor: pointer;
+}
+
+.required {
+  border: 2px solid red;
+}
+
+@media only screen and (max-width: 800px) {
+  .form-box {
+    width: 464px;
+    padding: 20px 70px 20px;
   }
-  to {
-    transform: rotate(360deg);
+
+  #firstName,
+  #lastName,
+  #email,
+  #password,
+  .btnSubmit {
+    width: 300px;
+    height: 45px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
+
+  .checkbox-text {
+    font-size: 10.46px;
+  }
+
+  input {
+    padding: 20px;
   }
 }
