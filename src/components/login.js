@@ -70,11 +70,11 @@ function Login() {
     // checking if password is empty
     if (password !== "") {
       // checking for certain patterns that makes a vaild password
-      const passwordRegex = /^.{6}$/;
+      const passwordRegex = /^\S{6,}$/;
       if (passwordRegex.test(password)) {
         setPasswordError("");
       } else {
-        setPasswordError("Password must be 6 characters long");
+        setPasswordError("Password must be at least 6 or more characters long");
       }
     } else {
       setPasswordError("Password Required");
