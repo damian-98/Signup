@@ -56,26 +56,19 @@ function Login() {
     // checking if email is empty
     if (email !== "") {
       // checking for certain patterns that makes a vaild email address
-      const emailRegex =
-        /^[a-zA-Z0-9.1#$%&**+/-?^_{1}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-      if (emailRegex.test(email)) {
-        setEmailError("");
-      } else {
-        setEmailError("Invalid Email");
-      }
     } else {
       setEmailError("Email Required");
     }
 
     // checking if password is empty
     if (password !== "") {
-      // checking for certain patterns that makes a vaild password
-      const passwordRegex = /^\S{6,}$/;
-      if (passwordRegex.test(password)) {
-        setPasswordError("");
-      } else {
-        setPasswordError("Password must be at least 6 or more characters long");
-      }
+      // // checking for certain patterns that makes a vaild password
+      // const passwordRegex = /^\S{6,}$/;
+      // if (passwordRegex.test(password)) {
+      //   setPasswordError("");
+      // } else {
+      //   setPasswordError("Password must be at least 6 or more characters long");
+      // }
     } else {
       setPasswordError("Password Required");
     }
