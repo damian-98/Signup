@@ -44,33 +44,29 @@ function Login() {
     e.preventDefault();
 
     //checking if first name empty
-    if (fName !== "") {
-    } else {
+    if (!fName.trim()) {
       setFNameError("First Name Required");
     }
+
     // checking if last name is empty
-    if (lName !== "") {
-    } else {
+    if (!lName.trim()) {
       setLNameError("Last Name Required");
     }
+
     // checking if email is empty
-    if (email !== "") {
-      // checking for certain patterns that makes a vaild email address
-    } else {
+    if (!email) {
       setEmailError("Email Required");
+      // checking for certain patterns that makes a vaild email address
+    } else if (!/\S+@\S+\.\S+\S+/.test(email)) {
+      setEmailError("Email is invalid");
     }
 
     // checking if password is empty
-    if (password !== "") {
-      // // checking for certain patterns that makes a vaild password
-      // const passwordRegex = /^\S{6,}$/;
-      // if (passwordRegex.test(password)) {
-      //   setPasswordError("");
-      // } else {
-      //   setPasswordError("Password must be at least 6 or more characters long");
-      // }
-    } else {
+    if (!password) {
       setPasswordError("Password Required");
+      // checking the length for a vaild password
+    } else if (password.length < 6) {
+      setPasswordError("Password must be at least 6 characters or more");
     }
 
     // checking if all fields are filled to submit
