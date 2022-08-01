@@ -70,29 +70,27 @@ function Login() {
       const isContainsUppercase = /^(?=.*[A-Z])/;
       if (!isContainsUppercase.test(password)) {
         setPasswordError(
-          "Password must Password must have at least one Uppercase Character."
+          "Password must Password must have at least one Uppercase Character"
         );
       }
 
       const isContainsLowercase = /^(?=.*[a-z])/;
       if (!isContainsLowercase.test(password)) {
-        setPasswordError(
-          "Password must have at least one Lowercase Character."
-        );
+        setPasswordError("Password must have at least one Lowercase Character");
       }
 
       const isContainsNumber = /^(?=.*[0-9])/;
       if (!isContainsNumber.test(password)) {
         setPasswordError(
-          "Password must contain at least one Digit between 0 and 9."
+          "Password must contain at least one Digit between 0 and 9"
         );
       }
 
       const isValidLength = /^.{6,10}$/;
       if (!password) {
-        setPasswordError("Password Required.");
+        setPasswordError("Password Required");
       } else if (!isValidLength.test(password)) {
-        setPasswordError("Password must be 6-10 Characters Long.");
+        setPasswordError("Password must be 6-10 Characters Long");
       }
     }
 
