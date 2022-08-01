@@ -44,12 +44,12 @@ function Login() {
     e.preventDefault();
 
     //checking if first name empty
-    if (!fName.trim()) {
+    if (!fName) {
       setFNameError("First Name Required");
     }
 
     // checking if last name is empty
-    if (!lName.trim()) {
+    if (!lName) {
       setLNameError("Last Name Required");
     }
 
@@ -57,16 +57,43 @@ function Login() {
     if (!email) {
       setEmailError("Email Required");
       // checking for certain patterns that makes a vaild email address
-    } else if (!/\S+@\S+\.\S+\S+/.test(email)) {
+    } else if (!/\w+@\w+\.(net|com|edu|org)/.test(email)) {
       setEmailError("Email is invalid");
     }
 
-    // checking if password is empty
-    if (!password) {
-      setPasswordError("Password Required");
-      // checking the length for a vaild password
-    } else if (password.length < 6) {
-      setPasswordError("Password must be at least 6 characters or more");
+    const isContainsSymbol = /^(?=.*[!@#$%^&*])/;
+    if (!isContainsSymbol.test(password)) {
+      setPasswordError(
+        "Password must contain at least one of the following symbols !@#$%^&*"
+      );
+
+      const isContainsUppercase = /^(?=.*[A-Z])/;
+      if (!isContainsUppercase.test(password)) {
+        setPasswordError(
+          "Password must Password must have at least one Uppercase Character."
+        );
+      }
+
+      const isContainsLowercase = /^(?=.*[a-z])/;
+      if (!isContainsLowercase.test(password)) {
+        setPasswordError(
+          "Password must have at least one Lowercase Character."
+        );
+      }
+
+      const isContainsNumber = /^(?=.*[0-9])/;
+      if (!isContainsNumber.test(password)) {
+        setPasswordError(
+          "Password must contain at least one Digit between 0 and 9."
+        );
+      }
+
+      const isValidLength = /^.{6,10}$/;
+      if (!password) {
+        setPasswordError("Password Required.");
+      } else if (!isValidLength.test(password)) {
+        setPasswordError("Password must be 6-10 Characters Long.");
+      }
     }
 
     // checking if all fields are filled to submit
