@@ -57,7 +57,7 @@ function Login() {
     if (!email) {
       setEmailError("Email Required");
       // checking for certain patterns that makes a vaild email address
-    } else if (!/\w+@\w+\.(net|com|edu|org)/.test(email)) {
+    } else if (!/\w+@\w+\w+\.(net|com|edu|org)/.test(email)) {
       setEmailError("Email is invalid");
     }
 
@@ -92,27 +92,29 @@ function Login() {
       } else if (!isValidLength.test(password)) {
         setPasswordError("Password must be 6-10 Characters Long");
       }
+
+      if (fNameError || lNameError || emailError || passwordError) {
+        return false;
+      }
+      return true;
     }
 
-    // checking if all fields are filled to submit
-    if (fName && lName && email && password) {
-      // clearing input's value
-      setFName("");
-      setLName("");
-      setEmail("");
-      setPassword("");
+    // clearing input's value
+    setFName("");
+    setLName("");
+    setEmail("");
+    setPassword("");
 
-      Swal.fire({
-        position: "top-right",
-        title: `Welcome to your new account ${fName} ! `,
-        showConfirmButton: false,
-        timer: 3000,
-      });
-    }
+    Swal.fire({
+      position: "top-right",
+      title: `Welcome to your new account ${fName} ! `,
+      showConfirmButton: false,
+      timer: 3000,
+    });
   };
 
   return (
-    <form className="form-box spacing">
+    <form onSubmit={handleSubmit} className="form-box spacing">
       <label>
         <div>
           <h1>Create Account</h1>
@@ -178,11 +180,7 @@ function Login() {
         </label>{" "}
       </div>
       <div className="">
-        <button
-          onClick={handleSubmit}
-          type="submit"
-          className="btnSubmit btn-primary"
-        >
+        <button type="submit" className="btnSubmit btn-primary">
           SIGN UP
         </button>
         <span
